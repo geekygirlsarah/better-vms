@@ -49,8 +49,9 @@ if (url.includes("RoleScheduling.aspx")) {
     l("Found RoleScheduling page");
     try {
         // Make tables wider
-        jQuery(".container").css("margin-left", "auto");
-        jQuery(".container").css("margin-right", "auto");
+        jQuery(".container").css("margin-left", "5%");
+        jQuery(".container").css("margin-right", "5%");
+        jQuery(".container").css("width", "auto");
 
         // Schedule table
         // jQuery("#ScheduleView").css("max-width", "");
@@ -65,9 +66,11 @@ if (url.includes("RoleScheduling.aspx")) {
 
         // jQuery("#ActionMessageDiv").css("width","");
 
-        jQuery(".container").css("width", "1100px");
         jQuery("div").css("max-width", "");
         //jQuery("div").css("width", "auto");
+
+        // Remove scroll bar on list of applicants
+        jQuery("tbody").css("max-height", "");
     }
     catch(e) {
         alert("BetterVMS Debug: " + e);
