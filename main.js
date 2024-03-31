@@ -36,8 +36,45 @@ if (url.includes("EventDetails.aspx")) {
         jQuery("#groupDetail1").css("max-height", "");
         jQuery("#groupDetail2").css("max-height", "");
 
-        // Fix unaccessible color selection
-        //jQuery("div.dayFilled").css("background","")
+        // Replace "Daily Target Reached" to add days in
+        // Step 1: Find the days
+        var weekItems = jQuery("div.daysFilledContainer").eq(0).find("div.dayFilled");
+        var daysText = "";
+        for (const iter of weekItems) {
+            l($(iter).text());
+            daysText += $(iter).text() + " - ";
+        }
+        daysText = daysText.substring(0, daysText.length-2);
+        l(daysText);
+
+        // Step 2: Add days to header
+        jQuery("table#EventDetailTable1 thead tr.tablesorter-headerRow th.tablesorter-header.tablesorter-headerUnSorted.bootstrap-header div.tablesorter-wrapper div.tablesorter-header-inner")
+        .eq(4)
+        .html("<i class=\"tablesorter-icon\"></i>" +
+        "Daily Target Reached<br />" + daysText
+        ); 
+        jQuery("table#EventDetailTable2 thead tr.tablesorter-headerRow th.tablesorter-header.tablesorter-headerUnSorted.bootstrap-header div.tablesorter-wrapper div.tablesorter-header-inner")
+        .eq(4)
+        .html("<i class=\"tablesorter-icon\"></i>" +
+        "Daily Target Reached<br />" + daysText
+        ); 
+
+        // Step 3: Fix target days reached colors to be more accessible
+        jQuery(".dayFilled").filter(function() {
+            // Find Yellow (not filled all roles)
+            var color = $(this).css("background-color");
+            return color==="#ffce55" || color==="rgb(255, 206, 85)";
+        }).css("background-color", "#f19fb8")
+        .css("color", "#000000")
+        .text("✖");
+        jQuery(".dayFilled").filter(function() {
+            // Find Green (roles filled)
+            var color = $(this).css("background-color");
+            return color==="#a0d468" || color==="rgb(160, 212, 104)";
+        }).css("background-color", "#b9e192")
+        .css("color", "#000000")
+        .text("✔");
+
     }
     catch(e) {
         alert("BetterVMS Debug: " + e);

@@ -1,9 +1,9 @@
 {
     "manifest_version": 2,
     "name": "Better VMS",
-    "version": "0.2",
+    "version": "0.3",
   
-    "description": "Tweaks FIRST Volunteer Management System to be a bit easier to use",
+    "description": "Tweaks FIRST Volunteer Management System (VMS) to be a bit easier to use",
   
     "browser_specific_settings": {
         "gecko": {
