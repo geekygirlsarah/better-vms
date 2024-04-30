@@ -1,6 +1,3 @@
-// import jquery from 'jquery';
-
-
 var url = window.location.href;
 
 function l(msg) {
@@ -91,19 +88,6 @@ if (url.includes("RoleScheduling.aspx")) {
         jQuery(".container").css("margin-left", "5%");
         jQuery(".container").css("margin-right", "5%");
         jQuery(".container").css("width", "auto");
-
-        // Schedule table
-        // jQuery("#ScheduleView").css("max-width", "");
-        // jQuery("#ScheduleTable").css("width", "auto");
-        // jQuery("#ScheduleView").css("width", "auto");
-        // jQuery("#ScheduleDiv").css("width", "auto");
-        // jQuery("#groupDetail2").css("width", "auto");
-        // jQuery("#ScheduleView").css("width", "auto");
-
-        // List of unassigned applicants
-        // jQuery("#groupDetailUnassigned").css("max-height", "");
-
-        // jQuery("#ActionMessageDiv").css("width","");
 
         jQuery("div").css("max-width", "");
         //jQuery("div").css("width", "auto");
