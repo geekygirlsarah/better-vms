@@ -133,3 +133,25 @@ if (url.includes("ReportViewer.aspx")) {
     }
 }
 
+// This is the page with reports on it
+if (url.includes("VolunteerDetails.aspx")) {
+    l("Found VolunteerDetail page");
+    try {
+        // Make tables wider
+        jQuery(".container").css("margin-left", "50px");
+        jQuery(".container").css("margin-right", "50px");
+        jQuery(".container").css("width", "auto");
+
+        // Table with report data in it
+        jQuery("div#ReportContainer").css("max-width", "100%");
+
+        // Add description to YPP status
+        let yppStatus = jQuery("span.fa:nth-child(2)").attr("data-original-title");
+        jQuery("div.col-xs-5:nth-child(2) > div:nth-child(1) > h2:nth-child(1)")
+        .append("<blockquote>" + yppStatus + "</blockquote>")
+    }
+    catch(e) {
+        alert("BetterVMS Debug: " + e);
+    }
+}
+
