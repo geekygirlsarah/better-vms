@@ -75,6 +75,8 @@ if (url.includes("EventDetails.aspx")) {
         .css("color", "#000000")
         .text("✔");
 
+        // Step 4: Replace tooltip that says "yellow/green"
+        jQuery(".dayFilled").parent().parent().attr("title", "Pink = Target Not Yet Reached\nGreen = Target Reached");
     }
     catch(e) {
         alert("BetterVMS Debug: " + e);
